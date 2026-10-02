@@ -37,9 +37,7 @@ function UserPortfolio(){
                 <UserInfo img="./assets/stockPhotoGuy.png" txt="Hello this is a bio"></UserInfo>
                 </div>
                 <div className='postContainer'>
-
-                    {/* <div>{uid}</div>
-                    <WidgetDisplay widgets={data} /> */}
+                    <WidgetDisplay widgets_db={data} />
                 </div>
             </div>
             

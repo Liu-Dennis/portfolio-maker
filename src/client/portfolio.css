@@ -14,9 +14,23 @@
   width: 25%;
 }
 
+@media (max-width: 768px) {
+  .infoEditContainer {
+    background-color: #f0f2f5;
+    width: 100%;
+  }
+}
+
 .postContainer {
   background-color: #ffffff;
   width: 75%;
+}
+
+@media (max-width: 768px) {
+  .postContainer {
+    background-color: #ffffff;
+    width: 100%;
+  }
 }
 
 /* Responsive: Stacks vertically on smaller screens */
