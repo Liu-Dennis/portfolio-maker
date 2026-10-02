@@ -6,6 +6,7 @@ import passport from "passport";
 import { Strategy as GitHubStrategy } from "passport-github2";
 import { Strategy as LocalStrategy } from "passport-local";
 import session from "express-session";
+import registerPortfolioRoutes from "./portfolioRoutes.js";
 
 dotenv.config();
 
@@ -118,7 +119,9 @@ async function(accessToken, refreshToken, profile, done) {
     let user = await users.findOne({ githubID: user_obj.githubID })
 
     if (!user) {
-        user = await users.insertOne( user_obj )
+        // insertOne returns { insertedId }, not the new user
+        const result = await users.insertOne( user_obj )
+        user = { _id: result.insertedId }
     }
     
     user_obj._id = user._id
@@ -138,6 +141,8 @@ app.post('/user/widgets', express.json(), async (req, res) => {
         res.json( docs )
     }
 })
+
+registerPortfolioRoutes(app, client, ensureAuthenticated);
 
 ViteExpress.listen(app, 3000, () =>
   console.log("Server is listening on port 3000..."),
