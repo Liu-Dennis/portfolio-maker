@@ -134,7 +134,7 @@ app.post('/user/widgets', express.json(), async (req, res) => {
     console.log(`Post Received: ${JSON.stringify( req.body )}`)
 
     if (widgets !== null) {
-        const docs = await widgets.find({_id: new ObjectId("6abc36b3651066defb89b1ca")}).toArray()
+        const docs = await widgets.find({user: req.body.userid}).toArray()
         res.json( docs )
     }
 })
