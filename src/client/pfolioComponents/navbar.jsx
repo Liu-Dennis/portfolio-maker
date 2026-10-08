@@ -37,9 +37,17 @@ function PFolioNavBar() {
         <>
         <Navbar bg="primary" data-bs-theme="dark">
             <Container>
-                {username !== "" ? <Navbar.Brand>Logged in as {username}</Navbar.Brand> : <Navbar.Brand>Not Logged In</Navbar.Brand>}
-                {/* <Button onClick={handleLogOut}>Log Out</Button> */}
-                {username !== "" ? <Button onClick={handleLogOut}>Log Out</Button> : <Button onClick={handleLogInRedirect}>Log In</Button>}
+                <Navbar.Brand>
+                    <img
+                        alt = ""
+                        src = "./assets/tempLogo.png"
+                        width = "30"
+                        height = "30"
+                        className = "d-inline-block align top"
+                    />{' '}
+                    Art Port
+                </Navbar.Brand>
+                {username !== "" ? <Button onClick={handleLogOut}>Log Out {username}</Button> : <Button onClick={handleLogInRedirect}>Log In</Button>}
             </Container>
         </Navbar>
         </>

@@ -1,0 +1,60 @@
+/* Full-width strip under the navbar: picture | name + bio | owner buttons */
+
+.profileHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 24px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.profileHeaderPfp {
+  flex: 0 0 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profileHeaderPfp img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profileHeaderText {
+  flex: 1;
+  min-width: 0; /* lets long bios wrap instead of pushing the buttons off-screen */
+}
+
+.profileHeaderName {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.profileHeaderBio {
+  white-space: pre-wrap; /* keep the owner's line breaks */
+  margin: 0;
+}
+
+.profileHeaderActions {
+  flex: 0 0 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Phones: stack picture, text, buttons */
+@media (max-width: 768px) {
+  .profileHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .profileHeaderPfp,
+  .profileHeaderActions {
+    flex-basis: auto;
+  }
+  .profileHeaderPfp img {
+    align-self: center;
+  }
+}

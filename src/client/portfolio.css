@@ -1,27 +1,4 @@
-/* SplitPage.css */
-.columnContainer {
-  display: flex;
-  width: 100%;
-  min-height: 100vh; /* Takes full page height */
-}
-
-.infoEditContainer, .postContainer {
-  padding: 20px;
-}
-
-.infoEditContainer {
-  background-color: #f0f2f5;
-  width: 25%;
-}
-
+/* Posts sit full width under the profile header */
 .postContainer {
-  background-color: #ffffff;
-  width: 75%;
-}
-
-/* Responsive: Stacks vertically on smaller screens */
-@media (max-width: 768px) {
-  .columnContainer {
-    flex-direction: column;
-  }
+  padding: 20px;
 }

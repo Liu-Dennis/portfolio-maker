@@ -1,9 +1,10 @@
+import "./homepage.css"
 
 function Home() {
   return (
     <main className="container min-vh-100 d-flex align-items-center justify-content-center">
       <div className="card p-4 shadow" style={{ maxWidth: "400px", width: "100%" }}>
-        <h1 className="h3 mb-4 text-center">Portfolio Designer</h1>
+        <h1 className="site-name">Art Port</h1>
           <LocalForm />
           <br className="mb-5"/>
           <Methods />

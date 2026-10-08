@@ -1,12 +1,4 @@
-/* Styles for the owner edit tools + post grid (kept separate from portfolio.css) */
-
-.editSidebar {
-  margin-top: 20px;
-  padding: 16px;
-  background: #ffffff;
-  border: 1px solid #dee2e6;
-  border-radius: 8px;
-}
+/* Styles for the post grid + post form (kept separate from portfolio.css) */
 
 .postGrid {
   display: grid;
@@ -25,18 +17,4 @@
   object-fit: contain;
   border-radius: 8px;
   background: #f0f2f5;
-}
-
-.editSidebarSection {
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid #dee2e6;
-}
-
-.profilePreview {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
 }

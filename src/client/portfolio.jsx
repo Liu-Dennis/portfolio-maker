@@ -4,9 +4,8 @@ import { useState, useEffect } from "react";
 import WidgetDisplay from "./pfolioComponents/widgetDisplay.jsx";
 import "./portfolio.css"
 import PFolioNavBar from './pfolioComponents/navbar.jsx';
-import UserInfo from './pfolioComponents/userInfo.jsx';
 import usePortfolio from './pfolioComponents/usePortfolio.js';
-import EditSidebar from './pfolioComponents/editSidebar.jsx';
+import ProfileHeader from './pfolioComponents/profileHeader.jsx';
 import PostGrid from './pfolioComponents/postGrid.jsx';
 import PostFormModal from './pfolioComponents/postFormModal.jsx';
 import defaultPfp from './assets/stockPhotoGuy.png';
@@ -40,32 +39,26 @@ function UserPortfolio(){
     return (
         <>
             <PFolioNavBar uid={uid}></PFolioNavBar>
-            <div className='columnContainer'>
-                <div className='infoEditContainer'>
-                <UserInfo img={profile?.avatarUrl || defaultPfp} txt={profile?.bio || "No bio yet."}></UserInfo>
-                {isOwner && (
-                    <EditSidebar
-                        postCount={posts.length}
-                        editMode={editMode}
-                        onToggleEditMode={() => setEditMode(m => !m)}
-                        onNewPost={() => setModal({ post: null })}
-                        profile={profile}
-                        onSaveProfile={saveProfile}
-                    />
-                )}
-                </div>
-                <div className='postContainer'>
-                    <PostGrid
-                        posts={posts}
-                        editable={isOwner && editMode}
-                        emptyMessage={isOwner ? 'No posts yet. Use "+ New post" to add your first piece.' : 'No work posted yet.'}
-                        onEdit={(post) => setModal({ post })}
-                        onDelete={deletePost}
-                    />
+            <ProfileHeader
+                profile={profile}
+                defaultPfp={defaultPfp}
+                isOwner={isOwner}
+                editMode={editMode}
+                setEditMode={setEditMode}
+                onNewPost={() => setModal({ post: null })}
+                onSaveProfile={saveProfile}
+            />
+            <div className='postContainer'>
+                <PostGrid
+                    posts={posts}
+                    editable={isOwner && editMode}
+                    emptyMessage={isOwner ? 'No posts yet. Use "+ New post" to add your first piece.' : 'No work posted yet.'}
+                    onEdit={(post) => setModal({ post })}
+                    onDelete={deletePost}
+                />
 
-                    {/* <div>{uid}</div>
-                    <WidgetDisplay widgets={data} /> */}
-                </div>
+                {/* <div>{uid}</div>
+                <WidgetDisplay widgets={data} /> */}
             </div>
             {isOwner && (
                 <PostFormModal

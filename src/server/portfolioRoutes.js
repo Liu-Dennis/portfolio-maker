@@ -38,6 +38,7 @@ export default function registerPortfolioRoutes(app, client, ensureAuthenticated
         res.json({
             profile: {
                 username: owner.username,
+                //profileName: owner.profileName ?? "",
                 bio: owner.bio ?? "",
                 avatarUrl: owner.avatarUrl ?? "",
             },
@@ -50,6 +51,7 @@ export default function registerPortfolioRoutes(app, client, ensureAuthenticated
     // No uid in the URL on purpose -- it always updates the logged in user.
     app.put('/api/profile', ensureAuthenticated, json, async (req, res) => {
         const update = {
+            //profileName: cleanString(req.body.profileName, 70),
             bio: cleanString(req.body.bio, 1000),
             avatarUrl: cleanString(req.body.avatarUrl, 2000),
         };
