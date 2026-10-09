@@ -80,7 +80,7 @@ function ProfileHeader({ profile, defaultPfp, isOwner, editMode, setEditMode, on
                     {editMode && (
                         <>
                             <Button onClick={onNewPost}>+ New post</Button>
-                            <Button variant="secondary" onClick={handleSave} disabled={!changed || saving}>
+                            <Button variant="primary" onClick={handleSave} disabled={!changed || saving}>
                                 {saving ? "Saving..." : "Save profile"}
                             </Button>
                             {message && (

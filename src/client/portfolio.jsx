@@ -8,6 +8,7 @@ import usePortfolio from './pfolioComponents/usePortfolio.js';
 import ProfileHeader from './pfolioComponents/profileHeader.jsx';
 import PostGrid from './pfolioComponents/postGrid.jsx';
 import PostFormModal from './pfolioComponents/postFormModal.jsx';
+import PostDetailModal from './pfolioComponents/postDetailModal.jsx';
 import defaultPfp from './assets/stockPhotoGuy.png';
 
 function UserPortfolio(){
@@ -17,6 +18,7 @@ function UserPortfolio(){
     const { posts, profile, isOwner, editMode, setEditMode, savePost, deletePost, saveProfile } = usePortfolio(uid)
     // null = closed, { post: null } = creating, { post } = editing that post
     const [modal, setModal] = useState(null)
+    const [viewing, setViewing] = useState(null)
 
     // on load, fetch the data with the id passed in the url
     useEffect(() => {
@@ -55,6 +57,7 @@ function UserPortfolio(){
                     emptyMessage={isOwner ? 'No posts yet. Use "+ New post" to add your first piece.' : 'No work posted yet.'}
                     onEdit={(post) => setModal({ post })}
                     onDelete={deletePost}
+                    onOpen={(post) => setViewing(post)}
                 />
 
                 {/* <div>{uid}</div>
@@ -68,6 +71,8 @@ function UserPortfolio(){
                     onSave={async (fields) => { await savePost(modal?.post, fields); setModal(null); }}
                 />
             )}
+
+            <PostDetailModal post={viewing} onHide={() => setViewing(null)} />
             
         </>
     );

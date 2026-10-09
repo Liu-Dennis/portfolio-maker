@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useState, useEffect } from "react";
 import { NavbarBrand, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import logo from "../assets/tempLogo.png";
 
 
 function PFolioNavBar() {
@@ -40,7 +41,7 @@ function PFolioNavBar() {
                 <Navbar.Brand>
                     <img
                         alt = ""
-                        src = "./assets/tempLogo.png"
+                        src = {logo}
                         width = "30"
                         height = "30"
                         className = "d-inline-block align top"
